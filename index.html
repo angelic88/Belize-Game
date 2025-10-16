@@ -1,31 +1,9 @@
 <!DOCTYPE html>
 <html> 
-
-<body>
-    <h1>Belize District Identifier</h1>
-
-    <p>Click a district below to highlight it on the map of Belize.</p>
-
-    <img id="district-map" src="Images/Blank_map_of_Belize.png" alt="Map of Belize">
-
-    <h2>Select a district:</h2>
-
-    <button onclick="document.getElementById('district-map').src='Images/Corozal.png'">Corozal</button>
-    <button onclick="document.getElementById('district-map').src='Images/OrangeWalk.png'">Orange Walk</button>
-    <button onclick="document.getElementById('district-map').src='Images/Belize.png'">Belize</button>
-    <button onclick="document.getElementById('district-map').src='Images/Cayo.png'">Cayo</button>
-    <button onclick="document.getElementById('district-map').src='Images/StannCreek.png'">Stann Creek</button>
-    <button onclick="document.getElementById('district-map').src='Images/Toledo.png'">Toledo</button>
-	<button onclick="document.getElementById('district-map').src='Images/Blank_map_of_Belize.png'">Blank Map</button>
-
-    <footer>© 2025 Belize District Identifier</footer>
-</body>
-</html>
-
 <head>
     <title>Belize District Identifier</title>
     <style>
-       
+        /* Background and text */
         body {
             background: linear-gradient(to bottom, #cbe8ff, #ffffff);
             font-family: Arial, sans-serif;
@@ -33,20 +11,20 @@
             padding: 20px;
         }
 
-        
+        /* Headings */
         h1, h2 {
             color: black;
             text-align: center;
         }
 
-      
+        /* Instruction text */
         p {
             text-align: center;
             font-size: 16px;
             color: #333;
         }
 
-        
+        /* Map image */
         img {
             display: block;
             margin: 20px auto;
@@ -56,7 +34,7 @@
             box-shadow: 0 0 10px rgba(0,0,0,0.2);
         }
 
-        
+        /* Buttons */
         button {
             padding: 10px 20px;
             display: block;
@@ -74,7 +52,16 @@
             background-color: #45a049;
         }
 
-     
+        /* District name display */
+        #district-name {
+            text-align: center;
+            color: #003366;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        /* Footer */
         footer {
             text-align: center;
             font-size: 14px;
@@ -84,5 +71,35 @@
     </style>
 </head>
 
+<body>
+    <h1>Belize District Identifier</h1>
 
+    <p>Click a district below to highlight it on the map of Belize.</p>
 
+    <img id="district-map" src="Images/Blank_map_of_Belize.png" alt="Map of Belize">
+
+    <!-- Display selected district name -->
+    <h3 id="district-name"></h3>
+
+    <h2>Select a district:</h2>
+
+    <button onclick="updateDistrict('Corozal', 'Images/Corozal.png')">Corozal</button>
+    <button onclick="updateDistrict('Orange Walk', 'Images/OrangeWalk.png')">Orange Walk</button>
+    <button onclick="updateDistrict('Belize', 'Images/Belize.png')">Belize</button>
+    <button onclick="updateDistrict('Cayo', 'Images/Cayo.png')">Cayo</button>
+    <button onclick="updateDistrict('Stann Creek', 'Images/StannCreek.png')">Stann Creek</button>
+    <button onclick="updateDistrict('Toledo', 'Images/Toledo.png')">Toledo</button>
+    <button onclick="updateDistrict('No', 'Images/Blank_map_of_Belize.png')">Reset Map</button>
+
+    <footer>© 2025 Belize District Identifier</footer>
+
+    <script>
+        function updateDistrict(name, image) {
+            // Change the map image
+            document.getElementById('district-map').src = image;
+            // Show which district was clicked
+            document.getElementById('district-name').textContent = "You selected: " + name + " District";
+        }
+    </script>
+</body>
+</html>
